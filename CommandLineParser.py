@@ -1,4 +1,6 @@
 import argparse
+from CSVParser import CSVParser
+from FileProcessor import FileProcessor
 
 class CommandLineParser:
     """
@@ -16,7 +18,9 @@ class CommandLineParser:
         self.parser = argparse.ArgumentParser(description="Cookie Data Analyzer")
 
         # Define command-line arguments
+        self.parser.add_argument("filepath")
         self.parser.add_argument("-d", "--date", help="Specify a date for cookie analysis")
+        
 
     def run(self):
         """
@@ -26,13 +30,13 @@ class CommandLineParser:
 
         # Check if the date option is provided
         if args.date:
+            path = args
             date = args.date
             # Add your program logic here based on the provided date
             print(f"Analyzing data for date: {date}")
-            # Example: You can call functions from CSVParser and FileProcessor here
-            # For instance: cookie_data = CSVParser("path/to/cookie_data.csv").getCookies()
-            #              result = FileProcessor(cookie_data).getMostFrequentCookiesInADay(date)
-            #              print(result)
+            cookie_data = CSVParser("path/to/cookie_data.csv").getCookies()
+            result = FileProcessor(cookie_data).getMostFrequentCookiesInADay(date)
+            print(result)
         else:
             print("Please provide a date using the -d or --date option.")
 

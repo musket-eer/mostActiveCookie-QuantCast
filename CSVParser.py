@@ -1,6 +1,6 @@
 
 class CSVParser:
-     """
+    """
     A simple CSV parser for reading and extracting information from a CSV file containing cookie data.
 
     Attributes:
@@ -22,6 +22,8 @@ class CSVParser:
     >>> print(cookies)
     [('ChocolateChip', '2023-01-15'), ('OatmealRaisin', '2023-01-16'), ...]
     """
+    
+    
     def __init__(self, path) -> None:
         file_object = open(path, "r")
         file_object.readline()
