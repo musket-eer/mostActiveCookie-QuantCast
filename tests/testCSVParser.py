@@ -2,7 +2,7 @@ import unittest
 import tempfile
 import os
 from datetime import datetime
-from . CSVParser import CSVParser  
+from CSVParser import CSVParser  
 
 class TestCSVParser(unittest.TestCase):
     def setUp(self):
