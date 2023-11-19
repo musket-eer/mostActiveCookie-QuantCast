@@ -58,9 +58,3 @@ class FileProcessor:
 
         return res
     
-
-
-path = "data/cookiedata.csv"
-parser = CSVParser(path)
-processor = FileProcessor(parser.getCookies())
-print(processor.getMostFrequentCookiesInADay('2023-11-14'))

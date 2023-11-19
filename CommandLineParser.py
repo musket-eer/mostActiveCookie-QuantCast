@@ -15,32 +15,24 @@ class CommandLineParser:
     >>> parser.run()
     """
     def __init__(self):
-        self.parser = argparse.ArgumentParser(description="Cookie Data Analyzer")
+        self.parser = argparse.ArgumentParser(description="Your program description")
 
-        # Define command-line arguments
-        self.parser.add_argument("filepath")
-        self.parser.add_argument("-d", "--date", help="Specify a date for cookie analysis")
-        
+        self.parser.add_argument("filepath", help="Path to the CSV file")
+        self.parser.add_argument("-d", "--date", help="Date for analysis (format: YYYY-MM-DD)")
 
     def run(self):
         """
-        Parses command-line arguments and executes the program based on the provided options.
+        Parses command-line arguments and executes the program.
         """
         args = self.parser.parse_args()
 
-        # Check if the date option is provided
         if args.date:
-            path = args
+            filepath = args.filepath
             date = args.date
-            # Add your program logic here based on the provided date
-            print(f"Analyzing data for date: {date}")
-            cookie_data = CSVParser("path/to/cookie_data.csv").getCookies()
+            cookie_data = CSVParser(filepath).getCookies()
             result = FileProcessor(cookie_data).getMostFrequentCookiesInADay(date)
             print(result)
         else:
             print("Please provide a date using the -d or --date option.")
 
-if __name__ == "__main__":
-    # Run the program when the script is executed
-    cli_parser = CommandLineParser()
-    cli_parser.run()
+
