@@ -1,4 +1,5 @@
 import collections
+from datetime import datetime
 from CSVParser import CSVParser
 
 class FileProcessor:
@@ -43,16 +44,21 @@ class FileProcessor:
         return self.cookieDict[date]
     
     def getMostFrequentCookiesInADay(self, date):
+        if date[4] != '-' or date[7] != '-':
+            print("Invalid date format")
+            return []
+
         datesCookies = self.getCookiesForSpecificDate(date)
         if not datesCookies:
             return []
         
         datesCookiesSortedByFrequency = sorted(datesCookies, key=datesCookies.get, reverse=True)
         mostFrequentCookieCount = datesCookies[datesCookiesSortedByFrequency[0]]
-        res = []
+        res = [datesCookiesSortedByFrequency[0]]
         
         for i in range(1, len(datesCookiesSortedByFrequency)):
             key = datesCookiesSortedByFrequency[i]
+
             if datesCookies[key] == mostFrequentCookieCount:
                 res.append(key)
 

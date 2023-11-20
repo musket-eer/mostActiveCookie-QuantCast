@@ -1,3 +1,4 @@
+from datetime import datetime
 
 class CSVParser:
     """
@@ -20,7 +21,7 @@ class CSVParser:
     >>> parser = CSVParser("path/to/cookie_data.csv")
     >>> cookies = parser.getCookies()
     >>> print(cookies)
-    [('ChocolateChip', '2023-01-15'), ('OatmealRaisin', '2023-01-16'), ...]
+    [('chocolatecookie', '2023-01-15'), ('crescentcookie', '2023-01-16'), ...]
     """
     
     
@@ -31,7 +32,9 @@ class CSVParser:
         self.cookiesList = []
         for line in file_object:
             single_line = line.split(",")
-            self.cookiesList.append((single_line[0], (single_line[1][0:10])))
+            cookie = single_line[0]
+            date = (single_line[1][0:10])
+            self.cookiesList.append((cookie, date))
 
     def getCookies(self):
         return self.cookiesList
