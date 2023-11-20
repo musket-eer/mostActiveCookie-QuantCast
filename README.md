@@ -49,6 +49,7 @@ Upon execution, the program outputs the most active cookie(s) for the specified 
 **Example output:**
 
 cookie1
+
 cookie2
 
 
