@@ -30,6 +30,7 @@ This command initiates a series of tests ensuring the program's correctness.
 ## File Structure
 
 - **most_active_cookie.py:** The main program for extracting the most active cookie for a specified date.
+- **FileProcessor.py:** The main program logic resides here
 - **tests.py:** A suite of tests to verify program functionality.
 - **cookiedata.csv:** An example file with a time-stamped, sorted list of cookies for testing purposes.
 
