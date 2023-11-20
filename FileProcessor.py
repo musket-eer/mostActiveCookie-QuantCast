@@ -25,7 +25,7 @@ class FileProcessor:
         If there are ties in frequency, returns all tied cookies.
 
     Example usage:
-    >>> cookie_data = [('ChocolateChip', '2023-01-15'), ('OatmealRaisin', '2023-01-16'), ...]
+    >>> cookie_data = [('chocolatecookie', '2023-01-15'), ('cresentcookie', '2023-01-16'), ...]
     >>> processor = FileProcessor(cookie_data)
     >>> all_dates_cookies = processor.getCookieDates()
     >>> cookies_on_specific_date = processor.getCookiesForSpecificDate('2023-01-15')
