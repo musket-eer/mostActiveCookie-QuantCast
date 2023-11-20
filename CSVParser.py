@@ -1,5 +1,3 @@
-from datetime import datetime
-
 class CSVParser:
     """
     A simple CSV parser for reading and extracting information from a CSV file containing cookie data.
